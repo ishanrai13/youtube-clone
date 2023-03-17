@@ -67,7 +67,7 @@ const LiveChat = () => {
 			addNewMessage(makeid(10));
 		}, 2000);
 		return () => clearInterval(interval);
-	}, []);
+	}, [addNewMessage]);
 
 	return (
 		<div className="w-full h-full">

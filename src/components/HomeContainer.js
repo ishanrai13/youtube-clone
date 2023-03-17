@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { MOST_POPULAR_VIDEOS_ENDPOINT } from '../constants/apiEndpoints';
 import { getCookie } from '../utils/utilFunctions';
 import VideoCard from './VideoCard';
+import Shimmer from './Shimmer';
 
 const HomeContainer = () => {
 	const [videosList, setVideosList] = useState([]);
@@ -20,7 +21,7 @@ const HomeContainer = () => {
 		getPopularVideos();
 	}, []);
 	if (!videosList || videosList.length === 0) {
-		return <div>No videos found</div>;
+		return <div><Shimmer /></div>;
 	}
 	return (
 		<div className="p-10 flex flex-wrap">

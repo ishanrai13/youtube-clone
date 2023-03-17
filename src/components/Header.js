@@ -43,7 +43,7 @@ const Header = () => {
 			}, 300);
 			return () => clearTimeout(timer);
 		}
-	}, [searchText, searchCache]);
+	}, [searchText, searchCache, dispatch]);
 
 	useEffect(() => {
 		updateLoggedInToken();
@@ -53,7 +53,7 @@ const Header = () => {
 		window.location.href = oauth2GoogleEndpoint;
 	};
 	return (
-		<div className="flex py-4 justify-between px-5 shadow-md">
+		<div className="flex py-4 justify-between px-5 shadow-md h-[8vh]">
 			<div className="flex items-center">
 				<img
 					className="h-4 mr-4 cursor-pointer"
@@ -72,15 +72,15 @@ const Header = () => {
 					}}
 				/>
 			</div>
-			<div className="relative">
+			<div className="relative flex-[1] flex justify-center">
 				<form
-					className="h-10"
+					className="h-10 w-2/4 flex"
 					onSubmit={(e) => {
 						e.preventDefault();
 					}}
 				>
 					<input
-						className="border border-black rounded-l-md h-[80%] w-96 focus:outline-none px-3"
+						className="border border-black rounded-l-md h-[80%] focus:outline-none px-3 w-full"
 						onChange={(e) => {
 							setSearchText(e.target.value);
 						}}
@@ -89,11 +89,11 @@ const Header = () => {
 						🔍
 					</button>
 				</form>
-				<div className="absolute top-8 w-full">
+				<div className="absolute top-8 w-2/4">
 					<SearchTextDropDown searchResults={searchResults} />
 				</div>
 			</div>
-			<div>
+			<div className="relative">
 				<img
 					className="h-10 cursor-pointer"
 					src={userLogo}

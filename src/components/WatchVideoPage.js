@@ -12,13 +12,13 @@ const WatchVideoPage = () => {
 
 	useEffect(() => {
 		dispatch(closeSideBar());
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<div className="w-full">
-			<div className="w-full flex">
+			<div className="w-full flex flex-wrap justify-center">
 				<iframe
-					className="w-[70%] h-[500px] m-6"
+					className="w-full sm:w-[70%] h-[500px] m-6"
 					src={
 						'https://www.youtube.com/embed/' +
 						searchParams.get('v') +
@@ -28,20 +28,11 @@ const WatchVideoPage = () => {
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 					allowFullScreen
 				></iframe>
-				{/* <iframe
-					width="560"
-					height="315"
-					src="https://www.youtube.com/embed/Nq2wYlWFucg"
-					title="YouTube video player"
-					frameborder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					allowfullscreen
-				></iframe> */}
-				<div className="mt-6 w-[30%] h-[500px]">
+				<div className=" w-full mt-6 sm:w-[70%] h-[500px] lg:w-[25%]">
 					<LiveChat />
 				</div>
 			</div>
-			<div className="m-6">
+			<div className="mt-12 lg:m-6">
 				<CommentContainer commentsList={dummyComments.comments} />
 			</div>
 		</div>

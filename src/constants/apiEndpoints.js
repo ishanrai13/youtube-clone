@@ -1,5 +1,5 @@
 export const MOST_POPULAR_VIDEOS_ENDPOINT =
-	'https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&maxResults=50';
+	'https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&';
 
 export const SEARCH_SUGGESTIONS_ENDPOINT =
 	'http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=';

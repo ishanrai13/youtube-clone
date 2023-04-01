@@ -11,14 +11,10 @@ const HomeContainer = () => {
 	const [currentPageToken, setcurrentPageToken] = useState('');
 	const [nextPageToken, setNextPageToken] = useState('');
 
-	let mainDiv = useRef(null);
 	const observer = useRef();
 	const lastRenderedCard = useCallback(
 		(node) => {
-			console.log(node);
-			console.log(document.querySelectorAll('mainDiv'));
 			let options = {
-				root: document.querySelectorAll('#mainDiv')[0],
 				rootMargin: '0px',
 				threshold: 1.0,
 			};
@@ -26,8 +22,7 @@ const HomeContainer = () => {
 			observer.current = new IntersectionObserver((entries) => {
 				console.log(entries);
 				if (entries[0].isIntersecting && hasMore) {
-					console.log(entries[0].isIntersecting);
-					// setcurrentPageToken(nextPageToken);
+					setcurrentPageToken(nextPageToken);
 				}
 			}, options);
 			if (node) {
@@ -84,13 +79,7 @@ const HomeContainer = () => {
 		});
 	}
 	return (
-		<div className="p-10 flex flex-wrap">
-			<div>Hello</div>
-			<div id="mainDiv" >
-
-			{showVideoCards(videosList)}
-			</div>
-		</div>
+		<div className="p-10 flex flex-wrap">{showVideoCards(videosList)}</div>
 	);
 };
 
